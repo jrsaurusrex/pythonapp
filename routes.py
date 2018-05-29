@@ -80,7 +80,7 @@ def login():
             Password = form.Password.data
 
             userLog = User.query.filter_by(Email=Eemail).first()
-            if userLog is not None or userLog.check_password(Password):
+            if userLog is not None and userLog.check_password(Password):
                 session['Ses'] = form.Email.data
                 session['welcome'] = userLog.First_Name
                 session['last'] = userLog.Last_Name
