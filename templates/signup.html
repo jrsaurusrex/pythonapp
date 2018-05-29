@@ -1,0 +1,53 @@
+{% extends "layout.html"%}
+
+{% block content%}
+  <!-- create "nav" in main.css -->
+  <div class="nav">
+    <a href="{{ url_for('index') }}" class="learn">Home</a>
+    <a href="{{ url_for('about')}}" class="learn">Learn More</a>
+  </div>
+  <!-- create "pic" in main.css -->
+  <div class="pic"><img src=" {{ url_for('static', filename='img/python.png') }}">
+  </div>
+
+  <div class="signup">
+    <h2>Sign Up Here</h2>
+    <form method="post" action="/signup">
+      {{ form.hidden_tag() }}
+
+      {{ form.First_Name.label }}<br>
+      {{ form.First_Name }}
+      {% if form.First_Name.errors %}
+        {% for error in form.First_Name.errors %}
+          <p class="error">{{ error }}</p>
+        {% endfor %}
+      {% endif %}<br><br>
+
+      {{ form.Last_Name.label }}<br>
+      {{ form.Last_Name }}
+      {% if form.Last_Name.errors %}
+        {% for error in form.Last_Name.errors %}
+          <p class="error">{{ error }}</p>
+        {% endfor %}
+      {% endif %}<br><br>
+
+      {{ form.Email.label }}<br>
+      {{ form.Email }}
+      {% if form.Email.errors %}
+        {% for error in form.Email.errors %}
+          <p class="error">{{ error }}</p>
+        {% endfor %}
+      {% endif %}<br><br>
+
+      {{ form.Password.label }}<br>
+      {{ form.Password }}
+      {% if form.Password.errors %}
+        {% for error in form.Password.errors %}
+          <p class="error">{{ error }}</p>
+        {% endfor %}
+      {% endif %}<br><br>
+
+      {{ form.submit(class="sign") }}
+    </form>
+    </div>
+{% endblock %}

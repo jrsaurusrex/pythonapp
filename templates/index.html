@@ -4,7 +4,7 @@
   <!-- create "nav" in main.css -->
   <div class="nav">
     <a href="{{ url_for('about')}}" class="learn">Learn More</a>
-    <a href="#" class="sign">Sign Up</a>
+    <a href="{{ url_for('signup')}}" class="sign">Sign Up</a>
   </div>
   <!-- create "pic" in main.css -->
   <div class="pic"><img src=" {{ url_for('static', filename='img/python.png') }}">

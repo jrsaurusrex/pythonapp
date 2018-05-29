@@ -1,0 +1,10 @@
+{% extends "layout.html"%}
+
+{% block content%}
+  <!-- create "nav" in main.css -->
+  <div class="Home">
+    <h2>Home</h2>
+    <div class="account">Welcome, {{ session['welcome'] }} {{ session['last'] }}</div>
+    <a href="{{ url_for('logout')}}" class="sign">Log Out</a>
+  </div>
+{% endblock %}

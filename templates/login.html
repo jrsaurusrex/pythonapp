@@ -1,0 +1,37 @@
+{% extends "layout.html"%}
+
+{% block content%}
+  <!-- create "nav" in main.css -->
+  <div class="nav">
+    <a href="{{ url_for('index') }}" class="learn">Home</a>
+    <a href="{{ url_for('signup')}}" class="sign">Sign Up</a>
+  </div>
+  <!-- create "pic" in main.css -->
+  <div class="pic"><img src=" {{ url_for('static', filename='img/python.png') }}">
+  </div>
+
+  <div class="signup">
+    <h2>Log In Here</h2>
+    <form method="post" action="/login">
+      {{ form.hidden_tag() }}
+
+      {{ form.Email.label }}<br>
+      {{ form.Email }}
+      {% if form.Email.errors %}
+        {% for error in form.Email.errors %}
+          <p class="error">{{ error }}</p>
+        {% endfor %}
+      {% endif %}<br><br>
+
+      {{ form.Password.label }}<br>
+      {{ form.Password }}
+      {% if form.Password.errors %}
+        {% for error in form.Password.errors %}
+          <p class="error">{{ error }}</p>
+        {% endfor %}
+      {% endif %}<br><br>
+
+      {{ form.submit(class="sign") }}
+    </form>
+    </div>
+{% endblock %}
